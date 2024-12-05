@@ -1,5 +1,7 @@
 # files
+pyproject.toml
 .commits.txt
+.python-version
 
 # environments
 .env
