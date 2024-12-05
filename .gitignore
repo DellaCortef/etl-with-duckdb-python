@@ -1,0 +1,7 @@
+# files
+.commits.txt
+
+# environments
+.env
+.venv
+.environments
