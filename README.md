@@ -56,6 +56,10 @@ graph TD
     M --> F
     I --> F
     F --> N[End]
+    style B fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#bbf,stroke:#333,stroke-width:2px
+    style D fill:#cfc,stroke:#333,stroke-width:2px
+    style E fill:#fcc,stroke:#333,stroke-width:2px
 ```
 
 ## Steps
