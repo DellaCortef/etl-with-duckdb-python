@@ -37,52 +37,88 @@
 
 
 ## Steps
-**2.1 Choose Python version:**
-- python 3.12.1
+**2.1 Choose Python version**
+- Ensure you are using Python 3.12.1 for compatibility with the codebase and libraries.
+
+```bash
+pyenv install 3.12.1
+pyenv local 3.12.1
+python --version  # Verify Python version
+```
 
 **2.2 Setting virtual environment with poetry**
-- poetry init
-- poetry shell
+- Initialize and activate the virtual environment using Poetry.
+```bash
+poetry init  # Initialize Poetry for dependency management
+poetry shell  # Activate the virtual environment
+```
 
 **2.3 Installing libs through poetry:**
-- poetry add streamlit:
-    - to create dashboard (front-end)
-- poetry add gdown:
-    - library responsible for downloading Google Drive
-- poetry add duckdb:
-    - to transform the data
-- poetry add psycopg2-binary:
-    - to work with Postgre
-- poetry add python-dotenv:
-    - to use environment variables as security
-- poetry add psycopg:
-    - 
-- poetry add sqlalchemy:
-    - 
+- Install the required libraries for the project, each serving a specific purpose:
+```bash
+poetry add streamlit
+# To create a dashboard interface (front-end).
+
+poetry add gdown
+# To download files directly from Google Drive.
+
+poetry add duckdb
+# To transform and process data with an in-memory database.
+
+poetry add psycopg2-binary
+# To connect and interact with PostgreSQL databases.
+
+poetry add python-dotenv
+# To securely load environment variables from a `.env` file.
+
+poetry add psycopg
+# To enhance PostgreSQL operations.
+
+poetry add sqlalchemy
+# To handle database operations and ORM capabilities.
+```
 
 **2.4 Downloading Google Drive files**
-- csv file
-- json file
-- parquet file
+- Use gdown to download files from a shared Google Drive folder into a local directory.
+```python
+# Example of downloading files with gdown
+download_files_from_google_drive(FOLDER_URL, local_directory="data")
+```
 
-**2.5 Listing CSV files in a directory**
-- sales_05_01_2024.csv
-- sales_06_01_2024.csv
+**2.5 Listing files in a directory**
+- A function to list files and identify their formats in a given directory.
+```python
+files_and_types = list_files_and_types("data")
+print(files_and_types)
+# Output:
+# [('data/sales_05_01_2024.csv', 'csv'), ('data/sales_06_01_2024.json', 'json'), ('data/sales_07_01_2024.parquet', 'parquet')]
+```
 
-**2.6 Reading CSV file with duckdb**
-- reading csv file
+**2.6 Reading files using DuckDB**
+- Read files based on their type and convert them into DuckDB or Pandas DataFrames.
 
 **2.7 Checking file format**
-- csv format
-- json format
-- parquet format
+- The code supports the following file formats:
+    - CSV
+    - JSON
+    - Parquet
 
 **2.8 Function to add a total sales column**
-- duckdb.read_file
+- Transform the data by adding a calculated total_sales column.
 
-**2.9 Function to loading table into Postgre DataBase**
-- save_in_postgres()
+**2.9 Saving transformed data into PostgreSQL**
+- Save the processed data into a PostgreSQL table using SQLAlchemy.
 
+**2.10 Tracking processed files**
+- A history of processed files is stored in DuckDB to avoid duplicate processing.
+
+**2.11 Complete ETL Pipeline**
+- The pipeline automates:
+    - Downloading files
+    - Identifying formats
+    - Reading and transforming data
+    - Saving transformed data into PostgreSQL
+    - Logging processed files in DuckDB
 
 ## Settings
 - python -> 3.12
