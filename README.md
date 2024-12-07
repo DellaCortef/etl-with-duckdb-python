@@ -41,21 +41,21 @@ Below is the flow diagram of the ETL pipeline process implemented in the code:
 
 ```mermaid
 graph TD
-    A[<small>Start</small>] --> B[<small>Load Environment Variables</small>]
-    B --> C[<small>Establish DuckDB Connection</small>]
-    C --> D[<small>Initialize File History Table</small>]
-    D --> E[<small>Fetch Processed Files</small>]
-    E --> F{<small>Check Files in Directory</small>}
-    F --> G[<small>List Files and Types</small>]
-    G --> H{<small>File Already Processed?</small>}
-    H -- Yes --> I[<small>Skip File</small>]
-    H -- No --> J[<small>Read File Based on Type</small>]
-    J --> K[<small>Transform Data</small>]
-    K --> L[<small>Save Transformed Data to PostgreSQL</small>]
-    L --> M[<small>Register File in DuckDB</small>]
+    A[Start] --> B[Load\nEnvironment\nVariables]
+    B --> C[Establish\nDuckDB\nConnection]
+    C --> D[Initialize\nFile History\nTable]
+    D --> E[Fetch\nProcessed\nFiles]
+    E --> F{Check\nFiles in\nDirectory}
+    F --> G[List Files\nand Types]
+    G --> H{File\nAlready\nProcessed?}
+    H -- Yes --> I[Skip File]
+    H -- No --> J[Read File\nBased on Type]
+    J --> K[Transform\nData]
+    K --> L[Save Data\nto PostgreSQL]
+    L --> M[Register File\nin DuckDB]
     M --> F
     I --> F
-    F --> N[<small>End</small>]
+    F --> N[End]
 ```
 
 ## Steps
