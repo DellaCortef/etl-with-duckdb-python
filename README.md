@@ -60,7 +60,28 @@
 - poetry add sqlalchemy:
     - 
 
-**2.4 **
+**2.4 Downloading Google Drive files**
+- csv file
+- json file
+- parquet file
+
+**2.5 Listing CSV files in a directory**
+- sales_05_01_2024.csv
+- sales_06_01_2024.csv
+
+**2.6 Reading CSV file with duckdb**
+- reading csv file
+
+**2.7 Checking file format**
+- csv format
+- json format
+- parquet format
+
+**2.8 Function to add a total sales column**
+- duckdb.read_file
+
+**2.9 Function to loading table into Postgre DataBase**
+- save_in_postgres()
 
 
 ## Settings

@@ -1,4 +1,4 @@
-data_venda,valor,quantidade,cliente_id,categoria
+sales_date,value,quantity,client_id,category
 2024-01-05,450.25,2,14,Brinquedos
 2024-01-05,500.0,4,22,Livros
 2024-01-05,95.5,5,19,Alimentos
