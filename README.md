@@ -48,7 +48,7 @@
 - poetry add streamlit:
     - to create dashboard (front-end)
 - poetry add gdown:
-    - library responsible for downloading Google Driver
+    - library responsible for downloading Google Drive
 - poetry add duckdb:
     - to transform the data
 - poetry add psycopg2-binary:
