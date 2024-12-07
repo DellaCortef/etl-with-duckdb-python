@@ -56,6 +56,7 @@ graph TD
     M --> F
     I --> F
     F --> N[End]
+```
 
 ## Steps
 **2.1 Choose Python version**
