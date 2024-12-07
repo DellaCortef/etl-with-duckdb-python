@@ -41,21 +41,24 @@ Below is the flow diagram of the ETL pipeline process implemented in the code:
 
 ```mermaid
 graph TD
-    A[Start] --> B[Load\nEnvironment\nVariables]
-    B --> C[Establish\nDuckDB\nConnection]
-    C --> D[Initialize\nFile History\nTable]
-    D --> E[Fetch\nProcessed\nFiles]
-    E --> F{Check\nFiles in\nDirectory}
-    F --> G[List Files\nand Types]
-    G --> H{File\nAlready\nProcessed?}
-    H -- Yes --> I[Skip File]
-    H -- No --> J[Read File\nBased on Type]
-    J --> K[Transform\nData]
-    K --> L[Save Data\nto PostgreSQL]
-    L --> M[Register File\nin DuckDB]
+    %% Apply styles to ensure nodes fit the text
+    classDef largeText fill:#f9f,stroke:#333,stroke-width:1px,font-size:14px;
+
+    A[Start]:::largeText --> B[Load Environment Variables]:::largeText
+    B --> C[Establish DuckDB Connection]:::largeText
+    C --> D[Initialize File History Table]:::largeText
+    D --> E[Fetch Processed Files]:::largeText
+    E --> F{Check Files in Directory}:::largeText
+    F --> G[List Files and Types]:::largeText
+    G --> H{File Already Processed?}:::largeText
+    H -- Yes --> I[Skip File]:::largeText
+    H -- No --> J[Read File Based on Type]:::largeText
+    J --> K[Transform Data]:::largeText
+    K --> L[Save Transformed Data to PostgreSQL]:::largeText
+    L --> M[Register File in DuckDB]:::largeText
     M --> F
     I --> F
-    F --> N[End]
+    F --> N[End]:::largeText
 ```
 
 ## Steps
