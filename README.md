@@ -35,32 +35,6 @@
 - use python and duckdb to transform data;
 - how to save data in a sql database;
 
-## ETL Pipeline Flow
-
-Below is the flow diagram of the ETL pipeline process implemented in the code:
-
-```mermaid
-graph TD
-    %% Apply styles to ensure nodes fit the text
-    classDef largeText fill:#f9f,stroke:#333,stroke-width:1px,font-size:14px;
-
-    A[Start]:::largeText --> B[Load Environment Variables]:::largeText
-    B --> C[Establish DuckDB Connection]:::largeText
-    C --> D[Initialize File History Table]:::largeText
-    D --> E[Fetch Processed Files]:::largeText
-    E --> F{Check Files in Directory}:::largeText
-    F --> G[List Files and Types]:::largeText
-    G --> H{File Already Processed?}:::largeText
-    H -- Yes --> I[Skip File]:::largeText
-    H -- No --> J[Read File Based on Type]:::largeText
-    J --> K[Transform Data]:::largeText
-    K --> L[Save Transformed Data to PostgreSQL]:::largeText
-    L --> M[Register File in DuckDB]:::largeText
-    M --> F
-    I --> F
-    F --> N[End]:::largeText
-```
-
 ## Steps
 **2.1 Choose Python version**
 - Ensure you are using Python 3.12.1 for compatibility with the codebase and libraries.
