@@ -41,25 +41,21 @@ Below is the flow diagram of the ETL pipeline process implemented in the code:
 
 ```mermaid
 graph TD
-    A[Start] --> B[Load Environment Variables]
-    B --> C[Establish DuckDB Connection]
-    C --> D[Initialize File History Table]
-    D --> E[Fetch Processed Files]
-    E --> F{Check Files in Directory}
-    F --> G[List Files and Types]
-    G --> H{File Already Processed?}
-    H -- Yes --> I[Skip File]
-    H -- No --> J[Read File Based on Type]
-    J --> K[Transform Data]
-    K --> L[Save Transformed Data to PostgreSQL]
-    L --> M[Register File in DuckDB]
+    A[<small>Start</small>] --> B[<small>Load Environment Variables</small>]
+    B --> C[<small>Establish DuckDB Connection</small>]
+    C --> D[<small>Initialize File History Table</small>]
+    D --> E[<small>Fetch Processed Files</small>]
+    E --> F{<small>Check Files in Directory</small>}
+    F --> G[<small>List Files and Types</small>]
+    G --> H{<small>File Already Processed?</small>}
+    H -- Yes --> I[<small>Skip File</small>]
+    H -- No --> J[<small>Read File Based on Type</small>]
+    J --> K[<small>Transform Data</small>]
+    K --> L[<small>Save Transformed Data to PostgreSQL</small>]
+    L --> M[<small>Register File in DuckDB</small>]
     M --> F
     I --> F
-    F --> N[End]
-    style B fill:#f9f,stroke:#333,stroke-width:2px
-    style C fill:#bbf,stroke:#333,stroke-width:2px
-    style D fill:#cfc,stroke:#333,stroke-width:2px
-    style E fill:#fcc,stroke:#333,stroke-width:2px
+    F --> N[<small>End</small>]
 ```
 
 ## Steps
